@@ -14,8 +14,8 @@ clientes = []
 parametros = sys.argv
 debugar = False
 
-if parametros[1] == 'true':
-    debugar = True  # habilita o modo de debug
+if len(parametros) > 1:
+    debugar = parametros[1] == 'true' # Habilita o modo de teste
 # fim do tratamento dos parâmetros
 
 
