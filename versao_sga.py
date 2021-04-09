@@ -1,40 +1,14 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Atenção!
-# Caso ocorra algum erro ao conectar com o MongoDB, é necessário executar os seguintes comandos no terminal como Administrador.
-# 
-#     python -m pip install psycopg2[srv]
-#     python -m pip install psycopg2[tls]
-
-# In[ ]:
-
-
-get_ipython().system('pip install psycopg2')
-
-
-# In[ ]:
-
-
 import psycopg2
 import os
 from pymongo import MongoClient
 import sys
 import datetime
 
-
-# In[ ]:
-
-
 # Declaração variáveis globais
 pg_user = 'postgres'
 pg_senha = '<senha do usuário PostgreSQL>'
 pg_databases = os.environ['pg_databases'].split(',')
 clientes = []
-
-
-# In[ ]:
-
 
 # tratamento dos parâmetros via linha de comando
 parametros = sys.argv
@@ -43,9 +17,6 @@ debugar = False
 if parametros[1] == 'true':
     debugar = True  # habilita o modo de debug
 # fim do tratamento dos parâmetros
-
-
-# In[ ]:
 
 
 # Função que busca as informações no banco de dados Postgres
@@ -84,10 +55,6 @@ def colata_dados():
         conn.close()
     
 
-
-# In[ ]:
-
-
 # Função responsável por gravar no banco MongoDB as informações necessárias.
 def grava_dados():
     
@@ -119,20 +86,6 @@ def grava_dados():
     conn.close()
 
 
-# In[ ]:
-
 
 colata_dados()
-
-
-# In[ ]:
-
-
 grava_dados()
-
-
-# In[ ]:
-
-
-
-
