@@ -2,8 +2,7 @@ import psycopg2
 import os
 from pymongo import MongoClient
 import sys
-import datetime
-import pytz
+from time import gmtime, strftime
 
 # Declaração variáveis globais
 pg_user = 'postgres'
@@ -45,8 +44,7 @@ def colata_dados():
 
         # Cria um dicionário com as respectivas chaves e valores
         cliente = {"razao": response[1][0], "cnpj": response[0][0], "versao": response[2][0],
-                   "data_verificacao": datetime.datetime.utcnow()
-                   .astimezone(pytz.timezone('America/Sao_Paulo'))}
+                   "data_verificacao": str(strftime('%d/%m/%Y %H:%M'))}
 
         # Adiciona o dicionario criado acima em uma lista
         clientes.append(cliente)
