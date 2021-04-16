@@ -20,7 +20,7 @@ if len(parametros) > 1:
 
 
 # Função que busca as informações no banco de dados Postgres
-def colata_dados():
+def coleta_dados():
 
     for banco in pg_databases:
 
@@ -54,6 +54,7 @@ def colata_dados():
 
         # Encerra a conexão com o banco de dados
         conn.close()
+    grava_dados()
 
 
 # Função responsável por gravar no banco MongoDB as informações necessárias.
@@ -88,5 +89,5 @@ def grava_dados():
     conn.close()
 
 
-colata_dados()
-grava_dados()
+if __name__ == "__main__":
+    coleta_dados()
